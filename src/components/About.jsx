@@ -82,7 +82,7 @@ const About = () => {
                                 <Users size={28} />
                             </div>
                             <div>
-                                <div className="text-[#171D2C] font-bold text-2xl md:text-3xl leading-none mb-1">4</div>
+                                <div className="text-[#171D2C] font-bold text-2xl md:text-3xl leading-none mb-1">40</div>
                                 <div className="text-[#64748B] text-xs font-medium uppercase tracking-wider">Professionals</div>
                             </div>
                         </div>
