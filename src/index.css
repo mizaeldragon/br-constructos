@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-orange: #FF8C00;
+  --color-brand-yellow: #FFB703;
+  --color-brand-lightOrange: #FFF3E0;
+  --color-brand-navy: #1F2937;
+  --color-brand-slate: #4B5563;
+  --color-brand-light: #F9FAFB;
+  --font-sans: 'Inter', sans-serif;
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 10px 30px rgba(255, 140, 0, 0.1);
+}
+
+@layer base {
+  body {
+    @apply font-sans;
+    color: var(--color-brand-navy);
+    background-color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+@layer utilities {
+  @keyframes whatsappPulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.06);
+    }
+  }
+
+  @keyframes heroGlowSpin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes heroGlowPulse {
+    0%, 100% {
+      opacity: 0.65;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .whatsapp-pulse {
+    animation: whatsappPulse 2s ease-in-out infinite;
+  }
+
+  .hero-glow-btn {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+
+  .hero-glow-btn::before {
+    content: "";
+    position: absolute;
+    inset: -180%;
+    z-index: 0;
+    background: conic-gradient(
+      from 0deg,
+      rgba(255, 183, 3, 0) 0deg,
+      rgba(255, 140, 0, 0.9) 55deg,
+      rgba(255, 200, 50, 0.95) 95deg,
+      rgba(255, 140, 0, 0) 150deg,
+      rgba(255, 183, 3, 0) 360deg
+    );
+    filter: blur(10px);
+    animation: heroGlowSpin 3.4s linear infinite, heroGlowPulse 2.8s ease-in-out infinite;
+  }
+
+  .hero-glow-btn .hero-glow-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-glow-btn.hero-glow-strong::before {
+    inset: -120%;
+    filter: blur(8px);
+    background: conic-gradient(
+      from 0deg,
+      rgba(255, 183, 3, 0) 0deg,
+      rgba(255, 140, 0, 1) 40deg,
+      rgba(255, 200, 80, 1) 80deg,
+      rgba(255, 140, 0, 0) 130deg,
+      rgba(255, 183, 3, 0) 360deg
+    );
+    animation: heroGlowSpin 2.4s linear infinite, heroGlowPulse 1.8s ease-in-out infinite;
+  }
+
+  .hero-glow-btn.hero-glow-strong::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 9999px;
+    z-index: 0;
+    pointer-events: none;
+    box-shadow:
+      0 0 0 1px rgba(255, 200, 100, 0.9),
+      0 0 18px rgba(255, 140, 0, 0.62),
+      0 0 30px rgba(255, 120, 0, 0.45);
+    animation: heroGlowPulse 1.8s ease-in-out infinite;
+  }
+
+  .cursor-glow-root {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 180ms ease;
+  }
+
+  .cursor-glow-root.is-visible {
+    opacity: 1;
+  }
+
+  .cursor-glow-core {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 9999px;
+    margin-left: -12px;
+    margin-top: -12px;
+    background: radial-gradient(circle, rgba(255, 220, 120, 0.98) 0%, rgba(255, 140, 0, 0.95) 34%, rgba(255, 100, 0, 0.28) 66%, rgba(255, 100, 0, 0) 100%);
+    box-shadow:
+      0 0 0 1px rgba(255, 200, 100, 0.85),
+      0 0 22px rgba(255, 140, 0, 0.9),
+      0 0 44px rgba(255, 120, 0, 0.55);
+  }
+
+  .cursor-glow-dot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 9999px;
+    margin-left: -8px;
+    margin-top: -8px;
+    background: radial-gradient(circle, rgba(255, 240, 180, 0.98) 0%, rgba(255, 180, 50, 0.8) 55%, rgba(255, 140, 0, 0.16) 100%);
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.55);
+    filter: blur(0.2px);
+  }
+
+  .scroll-reveal {
+    will-change: opacity, transform;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-glow-btn::before {
+      animation: none;
+    }
+
+    .scroll-reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .scroll-reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    html,
+    body,
+    a,
+    button,
+    input,
+    textarea,
+    select,
+    [role="button"] {
+      cursor: none !important;
+    }
+  }
+}
