@@ -10,7 +10,7 @@ const Gallery = () => {
         { id: 2, category: 'Commercial', image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1469&auto=format&fit=crop', title: 'Office Complex' },
         { id: 3, category: 'New Builds', image: 'https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=1470&auto=format&fit=crop', title: 'Residential Framing' },
         { id: 4, category: 'Commercial', image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1470&auto=format&fit=crop', title: 'Warehouse Structure' },
-        { id: 5, category: 'Remodeling', image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1470&auto=format&fit=crop', title: 'Interior Renovation' },
+        { id: 5, category: 'Remodeling', image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1470&auto=format&fit=crop', title: 'Interior Renovation' },
         { id: 6, category: 'New Builds', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1470&auto=format&fit=crop', title: 'Luxury Villa Construction' }
     ];
 
